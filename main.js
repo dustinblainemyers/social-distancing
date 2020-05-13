@@ -62,6 +62,8 @@ document.body.onkeydown = function (e) {
 
 function collisionDetection(xcoord, ycoord) {}
 
+const obstacleRegistry = [];
+
 setInterval(() => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -71,6 +73,9 @@ setInterval(() => {
   ctx.fillRect(xcoord, ycoord, 50, 50);
 
   ctx.fillRect(500, 75, 50, 50);
-
+  obstacleRegistry.push(new Obstacle(400, 0, 50, 50));
+  obstacleRegistry.map((obstacle) => {
+    obstacle.draw();
+  });
   ctx.closePath();
 }, 10);
