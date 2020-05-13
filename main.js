@@ -11,6 +11,18 @@ const up = 38;
 const right = 39;
 const down = 40;
 
+class Obstacle {
+  constructor(xcoord, ycoord, width, height) {
+    this.xcoord = xcoord;
+    this.ycoord = ycoord;
+    this.width = width;
+    this.height = height;
+  }
+
+  draw() {
+    ctx.fillRect(this.xcoord, this.ycoord, this.width, this.height);
+  }
+}
 document.body.onkeydown = function (e) {
   if (e.keyCode === left) {
     if (xcoord - 5 > 450 && xcoord - 5 < 550 && ycoord > 25 && ycoord < 125) {
@@ -48,13 +60,7 @@ document.body.onkeydown = function (e) {
   }
 };
 
-// document.body.onkeydown = function (e) {
-//   if (e.keyCode === right) {
-//     xcoord = xcoord + 3;
-//   }
-// };
-
-const obstacles = [[75, 75]];
+function collisionDetection(xcoord, ycoord) {}
 
 setInterval(() => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -64,9 +70,6 @@ setInterval(() => {
   ctx.fillStyle = "orange";
   ctx.fillRect(xcoord, ycoord, 50, 50);
 
-  //   obstacles.map(
-
-  //obstacles
   ctx.fillRect(500, 75, 50, 50);
 
   ctx.closePath();
