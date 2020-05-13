@@ -13,17 +13,40 @@ const down = 40;
 
 document.body.onkeydown = function (e) {
   if (e.keyCode === left) {
-    xcoord = xcoord - 5;
+    if (xcoord - 5 > 450 && xcoord - 5 < 550 && ycoord > 25 && ycoord < 125) {
+      console.log("collison !");
+    } else {
+      console.log("xcoord", xcoord, "ycoord", ycoord);
+      xcoord = xcoord - 5;
+    }
   }
   if (e.keyCode === right) {
-    xcoord = xcoord + 5;
+    if (xcoord - 5 > 450 && xcoord - 5 < 550 && ycoord > 25 && ycoord < 125) {
+      console.log("collison !");
+    } else {
+      console.log("xcoord", xcoord, "ycoord", ycoord);
+      xcoord = xcoord + 5;
+    }
   }
 
   if (e.keyCode === down) {
+    if (xcoord - 5 > 450 && xcoord - 5 < 550 && ycoord > 25 && ycoord < 125) {
+      console.log("collison !");
+    } else {
+      console.log("xcoord", xcoord, "ycoord", ycoord);
+      xcoord = xcoord + 5;
+    }
     ycoord = ycoord + 5;
   }
 
   if (e.keyCode === up) {
+    if (xcoord - 5 > 450 && xcoord - 5 < 550 && ycoord > 25 && ycoord < 125) {
+      console.log("collison !");
+    } else {
+      console.log("xcoord", xcoord, "ycoord", ycoord);
+      xcoord = xcoord + 5;
+    }
+
     ycoord = ycoord - 5;
   }
 };
@@ -45,6 +68,9 @@ setInterval(() => {
   ctx.fillRect(xcoord, ycoord, 50, 50);
 
   //   obstacles.map(
-  ctx.fillRect(75, 75, 50, 50);
+
+  //obstacles
+  ctx.fillRect(500, 75, 50, 50);
+
   ctx.closePath();
 }, 10);
