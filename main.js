@@ -21,7 +21,7 @@ document.body.onkeydown = function (e) {
     }
   }
   if (e.keyCode === right) {
-    if (xcoord - 5 > 450 && xcoord - 5 < 550 && ycoord > 25 && ycoord < 125) {
+    if (xcoord + 5 > 450 && xcoord + 5 < 550 && ycoord > 25 && ycoord < 125) {
       console.log("collison !");
     } else {
       console.log("xcoord", xcoord, "ycoord", ycoord);
@@ -30,24 +30,21 @@ document.body.onkeydown = function (e) {
   }
 
   if (e.keyCode === down) {
-    if (xcoord - 5 > 450 && xcoord - 5 < 550 && ycoord > 25 && ycoord < 125) {
+    if (xcoord > 450 && xcoord < 550 && ycoord + 5 > 25 && ycoord + 5 < 125) {
       console.log("collison !");
     } else {
       console.log("xcoord", xcoord, "ycoord", ycoord);
-      xcoord = xcoord + 5;
+      ycoord = ycoord + 5;
     }
-    ycoord = ycoord + 5;
   }
 
   if (e.keyCode === up) {
-    if (xcoord - 5 > 450 && xcoord - 5 < 550 && ycoord > 25 && ycoord < 125) {
+    if (xcoord > 450 && xcoord < 550 && ycoord - 5 > 25 && ycoord - 5 < 125) {
       console.log("collison !");
     } else {
       console.log("xcoord", xcoord, "ycoord", ycoord);
-      xcoord = xcoord + 5;
+      ycoord = ycoord - 5;
     }
-
-    ycoord = ycoord - 5;
   }
 };
 
