@@ -61,10 +61,16 @@ document.body.onkeydown = function (e) {
 };
 
 function collisionDetection(inputX, inputY) {
-  inputX > obstacle.xcoord - 50 &&
-    inputX < obstacle.xcoord + 50 &&
-    inputY > obstacle.ycoord - 50 &&
-    inputY < obstacle.ycoord + 50;
+  if (
+    inputX > obstacle.xcoord - obstacle.width &&
+    inputX < obstacle.xcoord + obstacle.width &&
+    inputY > obstacle.ycoord - obstacle.height &&
+    inputY < obstacle.ycoord + obstacle.height
+  ) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 const obstacleRegistry = [];
