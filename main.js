@@ -60,7 +60,12 @@ document.body.onkeydown = function (e) {
   }
 };
 
-function collisionDetection(xcoord, ycoord) {}
+function collisionDetection(inputX, inputY) {
+  inputX > obstacle.xcoord - 50 &&
+    inputX < obstacle.xcoord + 50 &&
+    inputY > obstacle.ycoord - 50 &&
+    inputY < obstacle.ycoord + 50;
+}
 
 const obstacleRegistry = [];
 
