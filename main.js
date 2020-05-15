@@ -54,7 +54,7 @@ document.body.onkeydown = function (e) {
   }
 
   if (e.keyCode === up) {
-    if (xcoord > 450 && xcoord < 550 && ycoord - 5 > 25 && ycoord - 5 < 125) {
+    if (collisionDetection(xcoord, ycoord + -5) == true) {
       console.log("collison !");
     } else {
       console.log("xcoord", xcoord, "ycoord", ycoord);
