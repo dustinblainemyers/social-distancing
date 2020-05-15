@@ -64,16 +64,18 @@ document.body.onkeydown = function (e) {
 };
 
 function collisionDetection(inputX, inputY) {
-  let collision = obstacleRegistry.forEach((obstacle) => {
+  let collision = false;
+  obstacleRegistry.forEach((obstacle) => {
     if (
       inputX > obstacle.xcoord - obstacle.width &&
       inputX < obstacle.xcoord + obstacle.width &&
       inputY > obstacle.ycoord - obstacle.height &&
       inputY < obstacle.ycoord + obstacle.height
     ) {
-      return true;
+      collision = true;
     }
   });
+  return collision;
 }
 
 const obstacleRegistry = [];
