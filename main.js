@@ -25,7 +25,7 @@ class Obstacle {
 }
 document.body.onkeydown = function (e) {
   if (e.keyCode === left) {
-    if (xcoord - 5 > 450 && xcoord - 5 < 550 && ycoord > 25 && ycoord < 125) {
+    if (collisionDetection(xcoord - 5, ycoord) === true) {
       console.log("collison !");
     } else {
       console.log("xcoord", xcoord, "ycoord", ycoord);
@@ -33,7 +33,7 @@ document.body.onkeydown = function (e) {
     }
   }
   if (e.keyCode === right) {
-    if (xcoord + 5 > 450 && xcoord + 5 < 550 && ycoord > 25 && ycoord < 125) {
+    if (collisionDetection(xcoord + 5, ycoord) === true) {
       console.log("collison !");
     } else {
       console.log("xcoord", xcoord, "ycoord", ycoord);
@@ -42,7 +42,10 @@ document.body.onkeydown = function (e) {
   }
 
   if (e.keyCode === down) {
-    if (xcoord > 450 && xcoord < 550 && ycoord + 5 > 25 && ycoord + 5 < 125) {
+    const what = collisionDetection(xcoord, ycoord + 5);
+    console.log(what);
+
+    if (collisionDetection(xcoord, ycoord + 5) == true) {
       console.log("collison !");
     } else {
       console.log("xcoord", xcoord, "ycoord", ycoord);
@@ -61,16 +64,16 @@ document.body.onkeydown = function (e) {
 };
 
 function collisionDetection(inputX, inputY) {
-  if (
-    inputX > obstacle.xcoord - obstacle.width &&
-    inputX < obstacle.xcoord + obstacle.width &&
-    inputY > obstacle.ycoord - obstacle.height &&
-    inputY < obstacle.ycoord + obstacle.height
-  ) {
-    return true;
-  } else {
-    return false;
-  }
+  let collision = obstacleRegistry.forEach((obstacle) => {
+    if (
+      inputX > obstacle.xcoord - obstacle.width &&
+      inputX < obstacle.xcoord + obstacle.width &&
+      inputY > obstacle.ycoord - obstacle.height &&
+      inputY < obstacle.ycoord + obstacle.height
+    ) {
+      return true;
+    }
+  });
 }
 
 const obstacleRegistry = [];
@@ -83,8 +86,8 @@ setInterval(() => {
   ctx.fillStyle = "orange";
   ctx.fillRect(xcoord, ycoord, 50, 50);
 
-  ctx.fillRect(500, 75, 50, 50);
   obstacleRegistry.push(new Obstacle(400, 0, 50, 50));
+  obstacleRegistry.push(new Obstacle(500, 75, 50, 50));
   obstacleRegistry.map((obstacle) => {
     obstacle.draw();
   });
