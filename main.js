@@ -90,6 +90,7 @@ setInterval(() => {
 
   obstacleRegistry.push(new Obstacle(400, 0, 50, 50));
   obstacleRegistry.push(new Obstacle(500, 75, 50, 50));
+  obstacleRegistry.push(new Obstacle(400, 300, 500, 50));
   obstacleRegistry.map((obstacle) => {
     obstacle.draw();
   });
