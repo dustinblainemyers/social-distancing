@@ -67,10 +67,10 @@ function collisionDetection(inputX, inputY) {
   let collision = false;
   obstacleRegistry.forEach((obstacle) => {
     if (
-      inputX > obstacle.xcoord - obstacle.width &&
-      inputX < obstacle.xcoord + obstacle.width &&
-      inputY > obstacle.ycoord - obstacle.height &&
-      inputY < obstacle.ycoord + obstacle.height
+      inputX > obstacle.xcoord - obstacle.height &&
+      inputX < obstacle.xcoord &&
+      inputY > obstacle.ycoord &&
+      inputY < obstacle.ycoord
     ) {
       collision = true;
     }
