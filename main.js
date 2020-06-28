@@ -28,7 +28,6 @@ document.body.onkeydown = function (e) {
     if (collisionDetection(xcoord - 5, ycoord) === true) {
       console.log("collison !");
     } else {
-      console.log("xcoord", xcoord, "ycoord", ycoord);
       xcoord = xcoord - 5;
     }
   }
@@ -36,7 +35,6 @@ document.body.onkeydown = function (e) {
     if (collisionDetection(xcoord + 5, ycoord) === true) {
       console.log("collison !");
     } else {
-      console.log("xcoord", xcoord, "ycoord", ycoord);
       xcoord = xcoord + 5;
     }
   }
@@ -48,7 +46,6 @@ document.body.onkeydown = function (e) {
     if (collisionDetection(xcoord, ycoord + 5) == true) {
       console.log("collison !");
     } else {
-      console.log("xcoord", xcoord, "ycoord", ycoord);
       ycoord = ycoord + 5;
     }
   }
@@ -57,7 +54,6 @@ document.body.onkeydown = function (e) {
     if (collisionDetection(xcoord, ycoord + -5) == true) {
       console.log("collison !");
     } else {
-      console.log("xcoord", xcoord, "ycoord", ycoord);
       ycoord = ycoord - 5;
     }
   }
