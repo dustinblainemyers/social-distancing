@@ -62,6 +62,10 @@ document.body.onkeydown = function (e) {
 function collisionDetection(inputX, inputY) {
   let collision = false;
   obstacleRegistry.forEach((obstacle) => {
+    console.log("player x is", inputX);
+    console.log("player y is", inputY);
+    console.log("obstacle.xcoord is ", obstacle.xcoord);
+    console.log("obstacle.ycoord is", obstacle.ycoord);
     if (
       inputX > obstacle.xcoord - obstacle.height &&
       inputX < obstacle.xcoord + obstacle.height &&
