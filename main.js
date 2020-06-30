@@ -79,6 +79,9 @@ function collisionDetection(inputX, inputY) {
 }
 
 const obstacleRegistry = [];
+obstacleRegistry.push(new Obstacle(400, 0, 50, 50));
+obstacleRegistry.push(new Obstacle(500, 75, 50, 50));
+obstacleRegistry.push(new Obstacle(400, 300, 500, 50));
 
 setInterval(() => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -88,9 +91,6 @@ setInterval(() => {
   ctx.fillStyle = "orange";
   ctx.fillRect(xcoord, ycoord, 50, 50);
 
-  obstacleRegistry.push(new Obstacle(400, 0, 50, 50));
-  obstacleRegistry.push(new Obstacle(500, 75, 50, 50));
-  obstacleRegistry.push(new Obstacle(400, 300, 500, 50));
   obstacleRegistry.map((obstacle) => {
     obstacle.draw();
   });
