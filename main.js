@@ -25,14 +25,14 @@ class Obstacle {
 }
 document.body.onkeydown = function (e) {
   if (e.keyCode === left) {
-    if (collisionDetection(xcoord - 5, ycoord) === true) {
+    if (collisionDetection(xcoord - 45, ycoord) === true) {
       console.log("collison !");
     } else {
       xcoord = xcoord - 5;
     }
   }
   if (e.keyCode === right) {
-    if (collisionDetection(xcoord + 5, ycoord) === true) {
+    if (collisionDetection(xcoord + 45, ycoord) === true) {
       console.log("collison !");
     } else {
       xcoord = xcoord + 5;
@@ -40,10 +40,10 @@ document.body.onkeydown = function (e) {
   }
 
   if (e.keyCode === down) {
-    const what = collisionDetection(xcoord, ycoord + 5);
+    const what = collisionDetection(xcoord + 50, ycoord);
     console.log(what);
 
-    if (collisionDetection(xcoord, ycoord + 5) == true) {
+    if (collisionDetection(xcoord + 50, ycoord) == true) {
       console.log("collison !");
     } else {
       ycoord = ycoord + 5;
@@ -51,7 +51,7 @@ document.body.onkeydown = function (e) {
   }
 
   if (e.keyCode === up) {
-    if (collisionDetection(xcoord, ycoord + -5) == true) {
+    if (collisionDetection(xcoord + 50, ycoord) == true) {
       console.log("collison !");
     } else {
       ycoord = ycoord - 5;
@@ -67,10 +67,9 @@ function collisionDetection(inputX, inputY) {
     console.log("obstacle.xcoord is ", obstacle.xcoord);
     console.log("obstacle.ycoord is", obstacle.ycoord);
     if (
-      inputX > obstacle.xcoord - obstacle.height &&
-      inputX < obstacle.xcoord + obstacle.height &&
-      inputY > obstacle.ycoord &&
-      inputY < obstacle.ycoord
+      inputX === obstacle.xcoord &&
+      inputY >= obstacle.ycoord - 49 &&
+      inputY <= obstacle.ycoord + 49
     ) {
       collision = true;
     }
