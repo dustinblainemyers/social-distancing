@@ -40,10 +40,7 @@ document.body.onkeydown = function (e) {
   }
 
   if (e.keyCode === down) {
-    const what = collisionDetection(xcoord + 50, ycoord);
-    console.log(what);
-
-    if (collisionDetection(xcoord + 50, ycoord) == true) {
+    if (collisionDetection(xcoord, ycoord) == true) {
       console.log("collison !");
     } else {
       ycoord = ycoord + 5;
@@ -67,9 +64,10 @@ function collisionDetection(inputX, inputY) {
     console.log("obstacle.xcoord is ", obstacle.xcoord);
     console.log("obstacle.ycoord is", obstacle.ycoord);
     if (
-      inputX === obstacle.xcoord &&
-      inputY >= obstacle.ycoord - 49 &&
-      inputY <= obstacle.ycoord + 49
+      (inputX === obstacle.xcoord &&
+        inputY >= obstacle.ycoord - 49 &&
+        inputY <= obstacle.ycoord + 49) ||
+      (inputY === obstacle.ycoord && inputX >= obstacle.xcoord - 50)
     ) {
       collision = true;
     }
