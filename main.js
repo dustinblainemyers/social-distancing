@@ -25,14 +25,14 @@ class Obstacle {
 }
 document.body.onkeydown = function (e) {
   if (e.keyCode === left) {
-    if (collisionDetection(xcoord - 45, ycoord) === true) {
+    if (collisionDetection(xcoord - 5, ycoord) === true) {
       console.log("collison !");
     } else {
       xcoord = xcoord - 5;
     }
   }
   if (e.keyCode === right) {
-    if (collisionDetection(xcoord + 45, ycoord) === true) {
+    if (collisionDetection(xcoord + 5, ycoord) === true) {
       console.log("collison !");
     } else {
       xcoord = xcoord + 5;
@@ -40,7 +40,7 @@ document.body.onkeydown = function (e) {
   }
 
   if (e.keyCode === down) {
-    if (collisionDetection(xcoord, ycoord) == true) {
+    if (collisionDetection(xcoord, ycoord + 5) == true) {
       console.log("collison !");
     } else {
       ycoord = ycoord + 5;
@@ -48,7 +48,7 @@ document.body.onkeydown = function (e) {
   }
 
   if (e.keyCode === up) {
-    if (collisionDetection(xcoord + 50, ycoord) == true) {
+    if (collisionDetection(xcoord, ycoord - 5) == true) {
       console.log("collison !");
     } else {
       ycoord = ycoord - 5;
@@ -59,17 +59,19 @@ document.body.onkeydown = function (e) {
 function collisionDetection(inputX, inputY) {
   let collision = false;
   obstacleRegistry.forEach((obstacle) => {
-    console.log("player x is", inputX);
-    console.log("player y is", inputY);
-    console.log("obstacle.xcoord is ", obstacle.xcoord);
-    console.log("obstacle.ycoord is", obstacle.ycoord);
     if (
-      (inputX === obstacle.xcoord &&
-        inputY >= obstacle.ycoord - 49 &&
-        inputY <= obstacle.ycoord + 49) ||
-      (inputY === obstacle.ycoord && inputX >= obstacle.xcoord - 50)
+      inputX < obstacle.xcoord + obstacle.width &&
+      inputX + 50 > obstacle.xcoord &&
+      inputY < obstacle.ycoord + obstacle.height &&
+      inputY + 50 > obstacle.ycoord
     ) {
+      // collision detected!
+
       collision = true;
+      console.log("player x is", inputX);
+      console.log("player y is", inputY);
+      console.log("obstacle.xcoord is ", obstacle.xcoord);
+      console.log("obstacle.ycoord is", obstacle.ycoord);
     }
   });
   return collision;
