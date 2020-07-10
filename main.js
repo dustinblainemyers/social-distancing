@@ -6,10 +6,6 @@ let mouseClicked = false;
 
 let xcoord = 10;
 let ycoord = 10;
-const left = 37;
-const up = 38;
-const right = 39;
-const down = 40;
 
 class Obstacle {
   constructor(xcoord, ycoord, width, height) {
