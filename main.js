@@ -1,11 +1,6 @@
 const canvas = document.getElementById("canvas");
+const playerControls = require("./playerControls");
 const ctx = canvas.getContext("2d");
-
-let playing = true;
-let mouseClicked = false;
-
-let xcoord = 10;
-let ycoord = 10;
 
 class Obstacle {
   constructor(xcoord, ycoord, width, height) {
@@ -19,38 +14,6 @@ class Obstacle {
     ctx.fillRect(this.xcoord, this.ycoord, this.width, this.height);
   }
 }
-document.body.onkeydown = function (e) {
-  if (e.keyCode === left) {
-    if (collisionDetection(xcoord - 5, ycoord) === true) {
-      console.log("collison !");
-    } else {
-      xcoord = xcoord - 5;
-    }
-  }
-  if (e.keyCode === right) {
-    if (collisionDetection(xcoord + 5, ycoord) === true) {
-      console.log("collison !");
-    } else {
-      xcoord = xcoord + 5;
-    }
-  }
-
-  if (e.keyCode === down) {
-    if (collisionDetection(xcoord, ycoord + 5) == true) {
-      console.log("collison !");
-    } else {
-      ycoord = ycoord + 5;
-    }
-  }
-
-  if (e.keyCode === up) {
-    if (collisionDetection(xcoord, ycoord - 5) == true) {
-      console.log("collison !");
-    } else {
-      ycoord = ycoord - 5;
-    }
-  }
-};
 
 function collisionDetection(inputX, inputY) {
   let collision = false;
@@ -84,7 +47,7 @@ setInterval(() => {
   ctx.beginPath();
 
   ctx.fillStyle = "orange";
-  ctx.fillRect(xcoord, ycoord, 50, 50);
+  ctx.fillRect(playerControls.xcoord, playerControls.ycoord, 50, 50);
 
   obstacleRegistry.map((obstacle) => {
     obstacle.draw();
